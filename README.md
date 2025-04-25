@@ -1,22 +1,77 @@
-# 🌤 **Desafio - Desenvolvedor Jr.**
+# 🌦️ WeatherAPI - API de Clima
 
-## 📌 Descrição
-Este projeto consiste na criação de uma API REST para buscar previsões do tempo de cidades utilizando uma API pública (OpenWeatherMap ou WeatherAPI) e armazená-las em um banco de dados. A API permite consultar dados históricos, filtrar previsões por cidade e data, além de excluir registros.
+## 📌 Sobre o projeto
+Este projeto é uma **API REST** desenvolvida em **Python** com **FastAPI**, permitindo a consulta do **clima atual** de qualquer cidade, bem como o acesso ao **histórico de clima**, com filtros opcionais por cidade e/ou data.
 
----
-
-## 🚀 Tecnologias Que Podem Ser Utilizadas
-- **Linguagem:** Python 3.x  
-- **Framework:** FastAPI ou Flask  
-- **Banco de Dados:** SQLite ou PostgreSQL  
-- **ORM:** SQLAlchemy  
-- **API Externa:** OpenWeatherMap ou WeatherAPI  
-- **Versionamento de Código:** Git  
+Além de ser uma aplicação funcional, também serve como estudo prático de integração com serviços externos (OpenWeatherMap), manipulação de banco de dados e boas práticas com FastAPI.
 
 ---
 
-## 📖 Instruções
+## 🛠️ Tecnologias Utilizadas
+- Python 3.13
+- FastAPI
+- SQLite
+- SQLAlchemy
+- OpenWeatherMap (API externa de clima)
+- Git
 
-O candidato deverá desenvolver uma API REST que consulte previsões do tempo a partir de uma API pública (OpenWeatherMap ou WeatherAPI) e armazene os dados em um banco de dados.
+---
 
-Além disso, espera-se que o candidato implemente um fluxo ETL para garantir que os dados extraídos estejam organizados e acessíveis para outros times da empresa. O projeto pode incluir um WebHook para facilitar a automação do processo e integração com outras aplicações.
+## 🔗 Endpoints da API
+
+| Método | Rota               | Parâmetros                           | Descrição |
+|--------|--------------------|--------------------------------------|-----------|
+| GET    | `/`                | Nenhum                               | Exibe a documentação do projeto |
+| GET    | `/weather`         | `city` (obrigatório)                 | Retorna o clima atual da cidade informada |
+| GET    | `/weather/history` | `city` (opcional), `date` (opcional) | Retorna o histórico de clima com base na cidade e/ou data |
+| DELETE | `/weather/history` | `city` ou `date` (ao menos um)       | Remove registros climáticos com base na cidade e/ou data |
+
+---
+
+## 📁 Estrutura do Projeto
+
+    │   meubanco.db
+    │   readme.md
+    │   requirements.txt
+    │
+    └───app
+        │   config.py
+        │   main.py
+        │
+        ├───crud
+        │       weather_crud.py
+        │
+        ├───models
+        │       weather_model.py
+        │
+        ├───routers
+        │       weather.py
+        │
+        └───services
+                normalize_service.py
+                weather_service.py
+
+
+## ▶️ Como Executar o Projeto
+
+Você pode optar por acessar a api hospedada no Render, [clicando aqui.](https://test-dev-junior-use.onrender.com)
+
+### 1. **Clone o repositório:**
+```bash
+git clone https://github.com/pedrohrqe/dev_jr_test.git
+cd dev_jr_test
+```
+
+### 2. **Instale as dependências:**
+```bash
+pip install -r requirements.txt
+```
+
+### 3. **Execute a aplicação:**
+```bash
+python -m app.main
+```
+ou
+```bash
+uvicorn app.main:app --reload
+```
