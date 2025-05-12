@@ -9,6 +9,7 @@ COPY . /api
 # Instala as dependências
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Localizando os módulos
 ENV PYTHONPATH=/api
 
 # Comando padrão: gunicorn com uvicorn workers
