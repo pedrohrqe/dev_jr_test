@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Query
 from fastapi.responses import RedirectResponse, JSONResponse
-from app.services.weather_service import WeatherService
-from app.services.normalize_service import NormalizeService
+from services.weather_service import WeatherService
+from services.normalize_service import NormalizeService
 from datetime import datetime
 from pydantic import BaseModel
 from typing import List

@@ -1,8 +1,8 @@
 import requests
 from datetime import datetime
-from app.config import API_KEY, API_BASE_URL_WEATHER, API_BASE_URL_FOREACH
-from app.crud.weather_crud import WeatherCrud
-from app.services.normalize_service import NormalizeService
+from config import API_KEY, API_BASE_URL_WEATHER, API_BASE_URL_FOREACH
+from crud.weather_crud import WeatherCrud
+from services.normalize_service import NormalizeService
 
 
 class WeatherService:

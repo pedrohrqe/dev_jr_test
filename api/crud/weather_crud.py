@@ -1,4 +1,4 @@
-from app.models.weather_model import Weather, session
+from models.weather_model import Weather, session
 from datetime import datetime
 from sqlalchemy import and_
 

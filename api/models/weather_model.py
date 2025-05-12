@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine, Column, String, Integer, DateTime
 from sqlalchemy.orm import sessionmaker, declarative_base
-from app.config import DB_SQLLITE_HOST
+from config import DB_SQLLITE_HOST
 from datetime import datetime
 
 # criando banco de dados ou conectando caso já exista
